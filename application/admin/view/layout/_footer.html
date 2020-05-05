@@ -1,0 +1,23 @@
+    <script src="{:config('asset')}assets/js/skins.min.js"></script>
+    <!--Basic Scripts-->
+    <script src="{:config('asset')}assets/js/jquery.min.js"></script>
+    <script src="{:config('asset')}assets/js/bootstrap.min.js"></script>
+    <script src="{:config('asset')}assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--Beyond Scripts-->
+    <script src="{:config('asset')}assets/js/beyond.js"></script>
+    <script type="text/javascript" src="{:config('asset')}assets/lib/layer/layer.js"></script>
+    <script>
+        $(window).bind("load", function () {
+
+            /*Sets Themed Colors Based on Themes*/
+            themeprimary = getThemeColorFromCss('themeprimary');
+            themesecondary = getThemeColorFromCss('themesecondary');
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            themefourthcolor = getThemeColorFromCss('themefourthcolor');
+            themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+        });
+    </script>
+</body>
+<!--  /Body -->
+</html>

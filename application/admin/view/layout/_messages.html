@@ -1,0 +1,7 @@
+{foreach ['danger', 'warning' , 'success', 'info'] as $value} 
+    {if Session("?$value")}
+		<div class="alert alert-{$value}" role="alert">
+  			{:Session($value)}
+		</div>	
+	{/if}
+{/foreach}

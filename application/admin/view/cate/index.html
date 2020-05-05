@@ -1,0 +1,75 @@
+{extend name='layout/app'}
+{block name='content'}
+<div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    {include file='/layout/_messages'}
+                    <ul class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-home"></i>&nbsp;栏目管理
+                        </li>
+                        <li>栏目列表</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                    <a href="/admin/cate/create" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>&nbsp;栏目添加</a>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <span class="widget-caption">栏目列表</span>
+                                    <div class="widget-buttons">
+                                        <ul class="pagination pagination-sm">
+                                            <li class="disabled"><a href="#">«</a></li>
+                                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>栏目名称</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                {foreach $datas as $data}
+                <tr>
+                    <td id='temp'>{$data.id}</td>
+                    <td>{$data.category}</td>
+                    <td>
+                        <a href="/admin/cate/edit" class="btn btn-azure btn-md">编辑</a>
+                        <!-- <a id='{$data.id}' class="btn btn-danger btn-xs delete" class="btn btn-primary" />删除</a> -->
+                        <form method="post" onsubmit="return confirm('您确定要删除吗？');" action='/admin/cate/{:$data.id}'>
+                            {:token()}
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger btn-md">
+                               删除
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {/foreach}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+
+
+{/block}
+
+
