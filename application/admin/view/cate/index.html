@@ -21,13 +21,7 @@
                                 <div class="widget-header">
                                     <span class="widget-caption">栏目列表</span>
                                     <div class="widget-buttons">
-                                        <ul class="pagination pagination-sm">
-                                            <li class="disabled"><a href="#">«</a></li>
-                                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">»</a></li>
-                                        </ul>
+                                        {$datas->render()}
                                     </div>
                                 </div>
                                 <div class="widget-body">
@@ -44,9 +38,9 @@
                 {foreach $datas as $data}
                 <tr>
                     <td id='temp'>{$data.id}</td>
-                    <td>{$data.category}</td>
+                    <td>{$data.catename}</td>
                     <td>
-                        <a href="/admin/cate/edit" class="btn btn-azure btn-md">编辑</a>
+                        <a href="/admin/cate/edit/{$data.id}" class="btn btn-azure btn-md">编辑</a>
                         <!-- <a id='{$data.id}' class="btn btn-danger btn-xs delete" class="btn btn-primary" />删除</a> -->
                         <form method="post" onsubmit="return confirm('您确定要删除吗？');" action='/admin/cate/{:$data.id}'>
                             {:token()}

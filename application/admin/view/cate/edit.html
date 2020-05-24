@@ -22,11 +22,11 @@
                 					<span class="widget-caption">栏目添加</span>
                 				</div>
                 				<div class="widget-body">
-                                    <form method="post" action="{:url('admin/Cate/save')}" class="form-horizontal">
+                                    <form method="post" action="/admin/cate/update/{$datas.id}" class="form-horizontal">
                                         <div class="form-group">
                                             <label for="catename" class="col-sm-2 control-label no-padding-right">栏目名称</label>
                                             <div class="col-sm-6">
-                                                <input type="text" name='catename' class="form-control" id="catename" placeholder="栏目名称" />
+                                                <input type="text" name='catename' class="form-control" id="catename" placeholder="栏目名称" value='{$datas.catename}' />
                                                 <p class="help-block">请输入栏目名称</p>
                                             </div>
                                         </div>

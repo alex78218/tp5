@@ -16,7 +16,7 @@ class Cate extends Controller
      */
     public function index()
     {
-        $datas = category::all();
+        $datas = category::where('deleted_at')->paginate(1);
 
         return view('cate/index')->assign('datas', $datas);
     }
@@ -40,8 +40,10 @@ class Cate extends Controller
      */
     public function save(Request $request)
     {
-        
-        
+        $cate = new category;
+        $cate->catename  = $request->post('catename');
+
+        $cate->save();
         Session::flash('success', '创建成功');
         return redirect('/admin/cate');
     }
@@ -65,7 +67,8 @@ class Cate extends Controller
      */
     public function edit($id)
     {
-        //
+        $datas = category::get($id);
+        return view('cate/edit')->assign('datas', $datas);
     }
 
     /**
@@ -77,7 +80,10 @@ class Cate extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $data = category::get($id);
+        $data->catename = $request->post('catename');
+        $data->save();
+        return $this->success('成功更新', '/admin/cate');
 
     }
 
